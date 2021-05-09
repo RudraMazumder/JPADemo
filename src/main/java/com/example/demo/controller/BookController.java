@@ -19,23 +19,23 @@ public class BookController {
 	@Autowired
 	BookService booksService;
 
-	@GetMapping("/book")
+	@GetMapping("/books")
 	private List<Book> getAllBooks() {
 		return booksService.getAll();
 	}
 	
-	@GetMapping("/book/{id}")
+	@GetMapping("/books/{id}")
 	private Book getBookById(@PathVariable(name = "id") Integer id) {
 		return booksService.getBookById(id);
 		
 	}
 	
-	@PostMapping("/book")
+	@PostMapping("/books")
 	private void upsertBook(@RequestBody Book book) {
 		booksService.saveBook(book);
 	}
 	
-	@DeleteMapping("/book/{id}")
+	@DeleteMapping("/books/{id}")
 	private Integer deleteBook(@PathVariable(name = "id") Integer id){
 		return booksService.deleteBookById(id);
 	}
