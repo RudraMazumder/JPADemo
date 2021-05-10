@@ -31,4 +31,12 @@ public class BookService {
 	public void saveBook(Book book) {
 		bookRepository.save(book);
 	}
+	
+	public List<Book> findByAuthor(String authorName){
+		return bookRepository.findByAuthor(authorName);
+	}
+	
+	public List<Book> findByAuthorAndPriceGreaterThan(String authorName, Integer price){
+		return bookRepository.findByAuthorAndPriceGreaterThan(authorName, price);
+	}
 }
